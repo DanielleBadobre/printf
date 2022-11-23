@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 /**
  * convert_alpha_numeric - convert digits to char
  * @nb: digit or number

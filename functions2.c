@@ -11,7 +11,7 @@ int impression_o(int *a, int b, char *s, int *index)
 {
 	int c = 0, y = 0;
 	int sum = 0, i, j;
-	int ocatal[11] = 0;
+	int octal[11] = {0};
 
 	while (c < b)
 	{
@@ -49,16 +49,19 @@ int print_u(va_list a, char *s, int *index)
 {
 	int x;
 	unsigned int u;
-	unsigned int j, cont 1;
+	unsigned int j, cont = 1;
 	unsigned int var1, num, var2, var3 = 1;
+	int y = 0;
 
 	x = (va_arg(a, int));
+
 	u = x;
+	var2 = u;
 	num = var2;
 	while (num > 9)
 	{
 		num = num / 10;
-		cont ++;
+		cont++;
 		var3 = var3 * 10;
 	}
 	for (j = 1; j <= cont; j++)
@@ -101,7 +104,7 @@ int print_o(va_list a, char *s, int *index)
 		y = impression_o(arr, c, s, index);
 	else
 	{
-		for (d = 31; d >= 0, d--)
+		for (d = 31; d >= 0; d--)
 		{
 			if (arr[d] == 1)
 				arr[d] =0;

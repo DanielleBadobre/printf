@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 	int c1 = 0, w = 0, x = -1, (*f)(va_list, char *s, int *m);
 	int *index;
 	char *s;
-	va_liste elements;
+	va_list elements;
 
 	va_start(elements, format);
 	s = malloc(1024);

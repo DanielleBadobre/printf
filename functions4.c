@@ -1,32 +1,32 @@
 #include "main.h"
 /**
- * switch_h - print hexa
+ * switch_H - hexa char
  * @sum: num
  * @h: array
- * @y: space
- * Return: num
+ * @y: spaces of array
+ * Return: number of character
  */
-int switch_h(int sum, int *h, int y)
+int switch_H(int sum, int *h, int y)
 {
 	switch (sum)
 	{
 		case 10:
-			h[y] = 'a';
+			h[y] = 'A';
 			break;
 		case 11:
-			h[y] = 'b';
+			h[y] = 'B';
 			break;
 		case 12:
-			h[y] = 'c';
+			h[y] = 'C';
 			break;
 		case 13:
-			h[y] = 'd';
+			h[y] = 'D';
 			break;
 		case 14:
-			h[y] = 'e';
+			h[y] = 'E';
 			break;
 		case 15:
-			h[y] = 'f';
+			h[y] = 'F';
 			break;
 		default:
 			h[y] = sum;
@@ -34,14 +34,14 @@ int switch_h(int sum, int *h, int y)
 	return (h[y]);
 }
 /**
- * impression_x - hexa lowercase
+ * impresion_X - print hexa
  * @a: array
  * @b: size
  * @s: buffer
  * @index: position
- * Return: num
+ * Return: number
  */
-int impression_x(int *a, int b, char *s, int *index)
+int impresion_X(int *a, int b, char *s, int *index)
 {
 	int c = 0, y = 0, mul = 1;
 	int sum = 0, i, j;
@@ -56,7 +56,7 @@ int impression_x(int *a, int b, char *s, int *index)
 			{
 				sum = sum + a[c];
 				mul = 2;
-				c++; }
+				c++;}
 			else if (i != 0 && c < b)
 			{
 				sum = sum + (mul * a[c]);
@@ -65,13 +65,13 @@ int impression_x(int *a, int b, char *s, int *index)
 			else
 				break;
 		}
-		h[y] = switch_h(sum, h, y);
+		h[y] = switch_H(sum, h, y);
 		y++;
 	}
 	for (j = y - 1; j >= 0; j--)
 	{
-		if (h[j] == 'a' || h[j] == 'b' || h[j] == 'c' || h[j] == 'd'
-				|| h[j] == 'e' || h[j] == 'f')
+		if (h[j] == 'A' || h[j] == 'B' || h[j] == 'C' || h[j] == 'D'
+				|| h[j] == 'E' || h[j] == 'F')
 			buffer(s, h[j], index);
 		else
 			buffer(s, (h[j] + '0'), index);
@@ -79,13 +79,13 @@ int impression_x(int *a, int b, char *s, int *index)
 	return (y);
 }
 /**
- * print_x - hexa base 16
+ * print_X - print base 16
  * @a: valist
- * @s:buffer
+ * @s: buffer
  * @index: position
- * @Return: num
+ * Reurn: number
  */
-int print_x(va_list a, char *s, int *index)
+int print_X(va_list a, char *s, int *index)
 {
 	int x, c, d, y = 0, aux = 0;
 	int arr[32] = {0};
@@ -105,17 +105,18 @@ int print_x(va_list a, char *s, int *index)
 		x = x / 2;
 	}
 	if (aux >= 0)
-		y = impression_x(arr, c, s, index);
+		y = impresion_X(arr, c, s, index);
 	else
 	{
-		for (d = 31; d >= 0; d--)
+		for (d = 32; d >= 0; d--)
 		{
 			if (arr[d] == 1)
 				arr[d] = 0;
 			else if (arr[d] == 0)
 				arr[d] = 1;
 		}
-		y = impression_x(arr, 32, s, index);
+		y = impresion_X(arr, 32, s, index);
 	}
 	return (y);
 }
+
